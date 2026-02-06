@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  line-height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100dvh;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #fbdbe0;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: MIN(800px, 100%);
+    padding: 4em;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f84747;
+    border-radius: 1rem;
+    color: #fbdbe0;
+    gap: 16px;
+
+    &#response {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      display: none;
+    }
+  }
+
+  h1 {
+    line-height: 100%;
+    font-size: 3rem;
+    color: white;
+    text-transform: capitalize;
+  }
+
+  p.question {
+    font-size: 2rem;
+  }
+
+  .btn-container {
+    display: flex;
+    gap: 1em;
+    margin: 2em 0 0;
+  }
+
+  button {
+    padding: 16px 32px;
+    border: 1px solid #fbdbe0;
+    border-radius: 1rem;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: white;
+    cursor: pointer;
+    color: #f84747;
+
+    span {
+      display: none;
+    }
+
+    &:hover {
+      filter: drop-shadow(rgba(0, 0, 0, 0.1) 2px 4px 10px);
+
+      span {
+        display: inline-block;
+      }
+    }
+
+    &#yes {
+      z-index: 10;
+
+      &:hover {
+        transform: scale(1.8);
+        transition: all 0.5s;
+        border-radius: 2rem;
+      }
+    }
+
+    &#no {
+      /* position: absolute; */
+      /* left: 100px; */
+      transition:
+        left 0.35s ease,
+        top 0.35s ease;
+    }
+  }
+}
+
+/* Hidden by default on Desktop */
+#mobile-blocker {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff0f3; /* Match your theme */
+  z-index: 9999; /* Stay on top of everything */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  gap: 2rem;
+}
+
+/* Show only on screens smaller than 768px (Mobile/Tablets) */
+@media only screen and (max-width: 768px) and (pointer: coarse) {
+  #mobile-blocker {
+    display: flex;
+  }
+
+  /* Hide the rest of the app so they can't scroll past the blocker */
+  body {
+    overflow: hidden;
+  }
+}
+
+.blocker-content h1 {
+  font-size: 4rem;
+}
+
+.blocker-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
